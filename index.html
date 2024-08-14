@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot Area to Kadi Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plot Area to Kadi Calculator</h1>
+        <form id="kadiForm">
+            <label for="length1">Length of First Wall:</label>
+            <input type="number" id="length1" required>
+
+            <label for="length2">Length of Second Wall:</label>
+            <input type="number" id="length2" required>
+
+            <label for="height1">Breadth of First Wall:</label>
+            <input type="number" id="height1" required>
+
+            <label for="height2">Breadth of Second Wall:</label>
+            <input type="number" id="height2" required>
+
+            <button type="submit">Calculate Kadi</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('kadiForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let L1 = parseFloat(document.getElementById('length1').value);
+            let L2 = parseFloat(document.getElementById('length2').value);
+            let H1 = parseFloat(document.getElementById('height1').value);
+            let H2 = parseFloat(document.getElementById('height2').value);
+
+            let L = (L1 + L2) / 2;
+            let H = (H1 + H2) / 2;
+
+            let Area = L * H;
+
+            let kadi = (Area / 43.56).toFixed(2);
+
+            document.getElementById('result').textContent = `The Area of Your Plot is ${kadi} Kadi`;
+        });
+    </script>
+</body>
+</html>
